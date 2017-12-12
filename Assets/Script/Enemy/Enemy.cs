@@ -24,14 +24,14 @@ public class Enemy : MonoBehaviour {
 		while (enemys.Count > 0) {
 			yield return new WaitForSeconds (waitT);
 			Move ();
-			if (enemys [enemys.Count - 1].transform.position.x == -2) {
+			if (Right()) {
 				yield return new WaitForSeconds (waitT);
 				Fall ();
 				xAxis = -1;
-			} else if (enemys [0].transform.position.x == -13) {
+			} else if (Left()) {
 				yield return new WaitForSeconds (waitT);
-				xAxis = 1;
 				Fall ();
+				xAxis = 1;
 			}
 		}
 	}
@@ -40,16 +40,41 @@ public class Enemy : MonoBehaviour {
 
 	}
 
+	//進む、左右はxAxisによりけり
 	void Move () {
 		Vector2 position = transform.position;
 		position.x += xAxis * speed;
 		transform.position = position;
 	}
 
+	//右端のboolean
+	bool Right () {
+		for (int i = 0; i < enemys.Count - 1; i ++) {
+			foreach(Transform childR in enemys[i]) {
+				if (childR.transform.position.x == -2) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	//左端のboolean
+	bool Left () {
+		for (int i = 0; i < enemys.Count - 1; i ++) {
+			foreach(Transform childL in enemys[i]) {
+				if (childL.transform.position.x == -13) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	//一段下げる
 	void Fall () {
 		Vector2 position = transform.position;
 		position.y += yAxis * speed;
 		transform.position = position;
 	}
-	//-13<x<-1
 }
