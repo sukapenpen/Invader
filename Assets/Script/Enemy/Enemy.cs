@@ -11,6 +11,11 @@ public class Enemy : MonoBehaviour {
 
 	private List<Transform> enemys = new List<Transform> ();
 
+	/*問題点
+	 * 親の親を支点にlocalPositionしたいけどどうすれば・・・
+	 * 理由はネット対戦のための個別化したプレイヤーオブジェクトのため
+	 */
+
 
 	IEnumerator Start () {
 		//子要素の取得
@@ -51,7 +56,8 @@ public class Enemy : MonoBehaviour {
 	bool Right () {
 		for (int i = 0; i < enemys.Count - 1; i ++) {
 			foreach(Transform childR in enemys[i]) {
-				if (childR.transform.position.x == -2) {
+				if (childR.transform.position.x == 7) {
+					Debug.Log ("右");
 					return true;
 				}
 			}
@@ -63,7 +69,8 @@ public class Enemy : MonoBehaviour {
 	bool Left () {
 		for (int i = 0; i < enemys.Count - 1; i ++) {
 			foreach(Transform childL in enemys[i]) {
-				if (childL.transform.position.x == -13) {
+				if (childL.transform.position.x == -7) {
+					Debug.Log ("左");
 					return true;
 				}
 			}
