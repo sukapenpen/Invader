@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class Enemy : MonoBehaviour {
 
@@ -8,6 +9,9 @@ public class Enemy : MonoBehaviour {
 	public int yAxis = -1;
 	public int speed = 1;
 	public float waitT = 1.5f;
+    public double maxRight = -2;
+    public double maxLeft = -13;
+
 
 	private List<Transform> enemys = new List<Transform> ();
 
@@ -16,29 +20,41 @@ public class Enemy : MonoBehaviour {
 	 * 理由はネット対戦のための個別化したプレイヤーオブジェクトのため
 	 */
 
+    /* 問題点の解決？
+     * 作成時に座標指定すればよさそう
+     */
+
 
 	IEnumerator Start () {
-		//子要素の取得
-		int count = 0;
-		foreach(Transform child in gameObject.transform) {
-			enemys.Add (child);
-			Debug.Log ("Child[" + count + "]:" + child.name);
-			count++;
-		}
-		Debug.Log (enemys.Count);
-		while (enemys.Count > 0) {
-			yield return new WaitForSeconds (waitT);
-			Move ();
-			if (Right()) {
-				yield return new WaitForSeconds (waitT);
-				Fall ();
-				xAxis = -1;
-			} else if (Left()) {
-				yield return new WaitForSeconds (waitT);
-				Fall ();
-				xAxis = 1;
-			}
-		}
+        //if (isLocalPlayer)
+        //{
+            //子要素の取得
+            int count = 0;
+            foreach (Transform child in gameObject.transform)
+            {
+                enemys.Add(child);
+                Debug.Log("Child[" + count + "]:" + child.name);
+                count++;
+            }
+            Debug.Log(enemys.Count);
+            while (enemys.Count > 0)
+            {
+                yield return new WaitForSeconds(waitT);
+                Move();
+                if (Right())
+                {
+                    yield return new WaitForSeconds(waitT);
+                    Fall();
+                    xAxis = -1;
+                }
+                else if (Left())
+                {
+                    yield return new WaitForSeconds(waitT);
+                    Fall();
+                    xAxis = 1;
+                }
+            //}
+        }
 	}
 
 	void Update () {
@@ -56,7 +72,7 @@ public class Enemy : MonoBehaviour {
 	bool Right () {
 		for (int i = 0; i < enemys.Count - 1; i ++) {
 			foreach(Transform childR in enemys[i]) {
-				if (childR.transform.position.x == 7) {
+                if (childR.transform.position.x == maxRight) {
 					Debug.Log ("右");
 					return true;
 				}
@@ -69,7 +85,7 @@ public class Enemy : MonoBehaviour {
 	bool Left () {
 		for (int i = 0; i < enemys.Count - 1; i ++) {
 			foreach(Transform childL in enemys[i]) {
-				if (childL.transform.position.x == -7) {
+                if (childL.transform.position.x == maxLeft) {
 					Debug.Log ("左");
 					return true;
 				}
