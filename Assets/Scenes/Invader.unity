@@ -142,7 +142,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 421816130}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11, y: 0, z: 0}
+  m_LocalPosition: {x: -7.5, y: -6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -313,7 +313,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1404626014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4, y: 0, z: 0}
+  m_LocalPosition: {x: 7.5, y: -6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -327,8 +327,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1405324245}
-  - component: {fileID: 1405324244}
   - component: {fileID: 1405324243}
+  - component: {fileID: 1405324244}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -359,7 +359,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1405324242}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -822479833, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d16724604d7a4c26a972dad1f171271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_NetworkPort: 7777
@@ -378,7 +378,7 @@ MonoBehaviour:
   m_OfflineScene: 
   m_OnlineScene: 
   m_SpawnPrefabs:
-  - {fileID: 1079335387379990, guid: 08e032c705ee54ac0a9d80c9c78f7465, type: 2}
+  - {fileID: 1474179056472506, guid: d7bf2962a7560406181d9a051c50af4d, type: 2}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:

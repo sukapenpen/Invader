@@ -54,6 +54,7 @@
      <Compile Include="Assets\Script\Enemy\Enemy.cs" />
      <Compile Include="Assets\Script\Enemy\Enemy_10p.cs" />
      <Compile Include="Assets\Script\Enemy\Enemy_40p.cs" />
+     <Compile Include="Assets\Script\Player\Player.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212092623059522982}
   - component: {fileID: 114261060241483668}
   - component: {fileID: 114272280992825798}
+  - component: {fileID: 114824086702289106}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -95,6 +96,25 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
+--- !u!114 &114824086702289106
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1043609935297248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dea85f1ed82474e30b2f22762a917cf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xAxis: 1
+  yAxis: -1
+  speed: 0.5
+  waitT: 1.5
+  maxRight: -2
+  maxLeft: -13
+  enemyPrefab: {fileID: 1474179056472506, guid: d7bf2962a7560406181d9a051c50af4d,
+    type: 2}
 --- !u!212 &212092623059522982
 SpriteRenderer:
   m_ObjectHideFlags: 1
